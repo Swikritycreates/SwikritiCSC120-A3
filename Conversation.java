@@ -2,15 +2,19 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * Conversation class acts as a chatbot to take input from user and return canned responses
+ */
+
 public class Conversation {
 
-    /**
-     * sets the final value of random for operating canned responses
+    /*
+     * initializes random to operate canned responses in random order
      */
 
     private static final Random random = new Random();
     /**
-     * 
+     * t
      * @param input - takes input of sentences to split it into words, set as outputs for replacement task
      * @return canned responses, if any of the targetted words for replacement are not detected
      */
@@ -31,7 +35,7 @@ public class Conversation {
         };
 
         /*
-         * 
+         * loop to switch/mirror words
          */
 
         for (String word : words) {
@@ -69,6 +73,11 @@ public class Conversation {
             }
         }
 
+        /**
+         * if the words of the inputs are replaced, then it adds question mark as an added punctuation and to return output dervied from the input
+         * if not, returns canned response
+         */
+
         if (replaced) {
             if (output.endsWith(".")) {
                 output = output.substring(0, output.length() - 1) + "?";
@@ -76,10 +85,10 @@ public class Conversation {
                 output += "?";
             }
             return output;
-        } else {
-            return exceptions[random.nextInt(exceptions.length)];
+            } else {
+             return exceptions[random.nextInt(exceptions.length)];
+            }
         }
-    }
 /**
  * takes input for number of rounds
  * prints bot responses
